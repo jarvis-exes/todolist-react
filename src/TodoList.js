@@ -19,7 +19,7 @@ const TodoList = () => {
   const fetchTodos = async () => {
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos?_limit=7"
+        "https://jsonplaceholder.typicode.com/todos?_limit=6"
       );
       const todos = await response.json();
       setTasks(todos);
@@ -195,46 +195,6 @@ const TodoList = () => {
           </button>
         </div>
 
-        <div className="mid">
-          <i className="fas fa-check-double"></i>
-          <p id="complete-all" onClick={handleCompleteAll}>
-            Mark all as Completed
-          </p>
-          <p id="clear-all" onClick={handleClearCompleted}>
-            Remove Marked
-          </p>
-        </div>
-
-        <ul id="list">
-          {filteredTasks.map((task) => (
-            <li key={task.id}>
-              <input
-                type="checkbox"
-                id={`task-${task.id}`}
-                data-id={task.id}
-                className="custom-checkbox"
-                checked={task.completed}
-                onChange={() => handleTaskCheckboxChange(task.id)}
-              />
-              <label htmlFor={`task-${task.id}`}>{task.title}</label>
-              <div>
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/1159/1159633.png"
-                  className="edit"
-                  data-id={task.id}
-                  onClick={() => handleEditTask(task.id)}
-                />
-                <img
-                  src="https://cdn-icons-png.flaticon.com/128/3096/3096673.png"
-                  className="delete"
-                  data-id={task.id}
-                  onClick={() => handleDeleteTask(task.id)}
-                />
-              </div>
-            </li>
-          ))}
-        </ul>
-
         <div className="filters">
           <div className="dropdown">
             <button className="dropbtn">Filter</button>
@@ -273,6 +233,45 @@ const TodoList = () => {
               </span>
             </p>
           </div>
+        </div>
+
+        <ul id="list">
+          {filteredTasks.map((task) => (
+            <li key={task.id}>
+              <input
+                type="checkbox"
+                id={`task-${task.id}`}
+                data-id={task.id}
+                className="custom-checkbox"
+                checked={task.completed}
+                onChange={() => handleTaskCheckboxChange(task.id)}
+              />
+              <label htmlFor={`task-${task.id}`}>{task.title}</label>
+              <div>
+                <img
+                  src="https://cdn-icons-png.flaticon.com/128/1057/1057097.png"
+                  className="edit"
+                  data-id={task.id}
+                  onClick={() => handleEditTask(task.id)}
+                />
+                <img
+                  src="https://cdn-icons-png.flaticon.com/128/6932/6932392.png"
+                  className="delete"
+                  data-id={task.id}
+                  onClick={() => handleDeleteTask(task.id)}
+                />
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mid">
+          <p id="complete-all" onClick={handleCompleteAll}>
+            Mark all as Completed
+          </p>
+          <p id="clear-all" onClick={handleClearCompleted}>
+            Remove Marked
+          </p>
         </div>
       </div>
     </div>

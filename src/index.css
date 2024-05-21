@@ -5,13 +5,46 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+.moving-shape {
+  width: 100px;
+  aspect-ratio: 1;
+  background-color: rgba(128, 128, 128, 0.7);
+  opacity: 1;
+  position: absolute;
+  top: -500px;
+  z-index: -1;
+  animation: rotate-fall 5s linear;
+  animation-iteration-count: 6;
+  border: none;
+  outline: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 /* container */
 .container {
   width: 100%;
   min-height: 100vh;
-  background: orange;
-  /* border: 2px solid green; */
   padding: 10px;
+}
+
+@keyframes rotate-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    border-radius: 0;
+  }
+  50% {
+    transform: translateY(500px) rotate(900deg);
+    border-radius: 50%;
+  }
+  100% {
+    transform: translateY(calc(900px)) rotate(1800deg);
+    border-radius: 0;
+  }
 }
 
 .todo-app {
@@ -19,21 +52,25 @@
   max-width: 540px;
   background: white;
   border: 2px solid black;
-  margin: 100px auto 20px;
+  margin: 10px auto 50px;
   padding: 40px 30px 70px;
   border-radius: 15px;
+  box-shadow: 0px 0px 20px black;
 }
 
 .todo-app h2 {
   display: flex;
-  color: blue;
+  color: rgb(2, 2, 48);
   align-items: center;
   margin-bottom: 20px;
-  justify-content: center;
+  margin-right: 40px;
+  margin-left: 40px;
+  justify-content: space-around;
+  font-size: 40px;
 }
 
 .todo-app h2 img {
-  width: 30px;
+  width: 40px;
   margin-left: 10px;
 }
 
@@ -42,17 +79,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #edeef0;
+  background: #e0e0e0;
   border-radius: 30px;
   padding-left: 20px;
   margin-bottom: 25px;
+  box-shadow: 0px 6px 10px black;
 }
 
 input {
   position: relative;
   flex: 1;
   border: none;
-  outline: none;
   background: none;
   padding: 10px;
 }
@@ -61,30 +98,37 @@ button {
   border: none;
   outline: none;
   padding: 16px 50px;
-  background: #ff5945;
-  color: white;
+  background: #8b0093;
+  color: aliceblue;
   font-size: 16px;
   cursor: pointer;
   border-radius: 40px;
+}
+
+#btn {
+  margin: 4px;
 }
 
 /* styling on mid */
 .mid {
   display: flex;
   font-size: 1.2rem;
-  margin-left: 20px;
-  margin-bottom: 30px;
-  /* justify-content: space-between; */
+  justify-content: space-around;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 3px solid #a2a2a2;
 }
 
 #complete-all {
   margin-left: 10px;
   cursor: pointer;
+  color: #3e8e41;
 }
 
 #clear-all {
   margin-left: 90px;
   cursor: pointer;
+  color: red;
 }
 
 /* styling on todo list */
@@ -93,15 +137,12 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  /* border: 1px solid #e5e5e5; */
 }
 
 ul li {
   padding: 10px;
-  /* padding-left: 0; */
   display: flex;
   justify-content: space-between;
-  align-items: inherit;
   align-items: center;
 }
 
@@ -120,6 +161,8 @@ ul li:hover {
 #list label {
   position: relative;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 #list label:before {
@@ -135,7 +178,9 @@ ul li:hover {
   vertical-align: middle;
   cursor: pointer;
   margin-right: 10px;
+  height: 2px;
 }
+
 #list input:checked + label:after {
   content: "";
   display: block;
@@ -155,25 +200,27 @@ ul li:hover {
   text-decoration: line-through;
 }
 .delete {
-  height: 25px;
+  height: 35px;
   padding: 5px 0px;
   border-radius: 3px;
+  transition: all 0.3s;
 }
 .delete:hover {
-  background: #f2f2f2;
   cursor: pointer;
+  height: 50px;
 }
 
 .edit {
-  height: 25px;
+  height: 35px;
   padding: 5px 0px;
   border-radius: 3px;
-  margin-right: 10px;
+  margin-right: 20px;
+  transition: all 0.3s;
 }
 
 .edit:hover {
-  background: #f2f2f2;
   cursor: pointer;
+  height: 50px;
 }
 
 h1 {
@@ -184,24 +231,26 @@ h1 {
   outline: none;
   font-size: 15px;
   padding: 11px;
-  border: 1px solid #f3f3f3;
   margin-bottom: 3px;
 }
 
 #total-tasks {
-  margin-bottom: 20px;
-  font-size: 13px;
-  margin-left: 2px;
+  font-size: 16px;
   color: gray;
 }
 
 /*
 dropdown*/
 .filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 20px;
   margin-top: 40px;
 }
 .dropbtn {
-  background-color: #4caf50;
+  background-color: #00b2ca;
   color: white;
   padding: 10px 16px;
   font-size: 16px;
@@ -245,15 +294,12 @@ dropdown*/
 
 .completed-task {
   display: inline-block;
-  margin-left: 100px;
 }
 
 .remaining-task {
   display: inline-block;
-  margin-left: 80px;
 }
 
-/* .remaining-task p{
-  font-size: 40px;
-  color: black;
-} */
+li div {
+  display: flex;
+}
