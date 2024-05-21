@@ -29,5 +29,5 @@ function createMovingShape() {
   });
 }
 
-// createMovingShape();
-// setInterval(createMovingShape, 4000);
+createMovingShape();
+setInterval(createMovingShape, 4000);

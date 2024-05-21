@@ -7,6 +7,8 @@
 
 body {
   background-color: rgb(255, 255, 255);
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .moving-shape {
@@ -28,7 +30,7 @@ body {
 /* container */
 .container {
   width: 100%;
-  min-height: 100vh;
+  min-height: 110vh;
   padding: 10px;
 }
 

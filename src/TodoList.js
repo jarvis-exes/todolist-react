@@ -171,7 +171,7 @@ const TodoList = () => {
       <div className="todo-app">
         <h2>
           <img
-            src="https://cdn-icons-png.flaticon.com/128/7246/7246743.png"
+            src="https://cdn-icons-png.flaticon.com/128/2387/2387635.png"
             alt="Todo Logo"
           />
           Todo List
