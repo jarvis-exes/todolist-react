@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { toastContainer, toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/ReactToastify.css";
 
 const TodoList = () => {
